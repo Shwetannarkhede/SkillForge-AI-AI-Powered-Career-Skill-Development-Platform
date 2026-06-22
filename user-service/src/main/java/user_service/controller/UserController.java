@@ -24,4 +24,8 @@ public class UserController {
     public List<User> getAllUsers() {
         return service.getAllUsers();
     }
+    @GetMapping("/profile")
+    public String profile() {
+        return "Welcome Shweta to SkillForge AI";
+    }
 }
