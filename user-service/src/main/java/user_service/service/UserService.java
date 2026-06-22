@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import user_service.dto.RegisterRequest;
+import user_service.jwt.JwtService;
 import user_service.model.User;
 import user_service.repository.UserRepository;
 
@@ -16,11 +17,13 @@ public class UserService {
 
     private final UserRepository repository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     public UserService(UserRepository repository,
-                       BCryptPasswordEncoder passwordEncoder) {
+                       BCryptPasswordEncoder passwordEncoder ,JwtService jwtService ) {
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
     }
 // register logic
     public User register(RegisterRequest request) {
@@ -62,6 +65,6 @@ public class UserService {
                     "Password is wrong");
         }
 
-        return "Login Successful";
+        return jwtService.generateToken(user.getEmail());
     }
 }
