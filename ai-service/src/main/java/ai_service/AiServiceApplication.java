@@ -1,4 +1,4 @@
-package resume_service;
+package ai_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class ResumeServiceApplication {
+public class AiServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ResumeServiceApplication.class, args);
+		SpringApplication.run(AiServiceApplication.class, args);
 	}
 
 }

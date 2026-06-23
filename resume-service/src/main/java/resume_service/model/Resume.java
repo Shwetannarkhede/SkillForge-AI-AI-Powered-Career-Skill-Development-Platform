@@ -20,4 +20,5 @@ public class Resume {
     private List<String> skills;
 
     private String careerSuggestion;
+    private String aiAnalysis;
 }
